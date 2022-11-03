@@ -50,4 +50,6 @@ const graphqlOptions = {
   }
 }
 
+app.all(['/','/graphiql'], graphqlHandler(graphqlOptions))
+
 eval(app.listen('app', 4000))
