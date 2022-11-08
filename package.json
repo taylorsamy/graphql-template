@@ -1,7 +1,7 @@
 {
   "name": "graphql-template",
   "version": "1.0.0",
-  "description": "This is a sample project that shows the implmentation of search by item, name and post an item APIs using GraphQL with JS.",
+  "description": "This is a sample project that shows the implmentation of search by item by id API using GraphQL with JS.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,10 @@
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yasaman-A/graphql-template/issues"
+  },
+  "homepage": "https://github.com/Yasaman-A/graphql-template#readme",
   "dependencies": {
     "graphql-serverless": "^0.9.0",
     "webfunc": "^0.14.0"
