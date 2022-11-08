@@ -16,19 +16,16 @@ const schema = `
   }
  
   type Query {
-      ItemsById(id: Int): [Item]
+      itemsById(id: Int): Item
   }
- 
-  schema {
-    query: Query
-  }`
+  `
  
 const itemResolver = {
   Query: {
-      ItemsById(root, { id }, context) {
+      itemsById(root, { id }, context) {
 		const results = id ? itemMocks.filter(p => p.id == id) : itemMocks
 		      if (results.length > 0)
-			return results
+			return results.pop()
 		      else
 			throw graphqlError(404, `Item with id ${id} does not exist.`)
       }
