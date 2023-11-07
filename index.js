@@ -57,13 +57,6 @@ const itemResolver = {
       },
       itemsByName(root, { name }, context) {
         return itemMocks.filter(p => p.name == name)
-      },
-      suppliersById(root, { id }, context) {
-        const results = id ? supplierMocks.filter(p => p.id == id) : supplierMocks
-        if (results.length > 0)
-          return results.pop()
-        else
-          throw graphqlError(404, `Supplier with id ${id} does not exist.`)
       }
    },
   Mutation: {
@@ -76,9 +69,21 @@ const itemResolver = {
 
 }
 
+const supplierResolver = {
+  Query: {
+      suppliersById(root, { id }, context) {
+        const results = id ? supplierMocks.filter(p => p.id == id) : supplierMocks
+        if (results.length > 0)
+          return results.pop()
+        else
+          throw graphqlError(404, `Supplier with id ${id} does not exist.`)
+      }
+    }
+}
+
 const executableSchema = makeExecutableSchema({
   typeDefs: schema,
-  resolvers: itemResolver
+  resolvers: [itemResolver, supplierResolver]
 })
 
 const graphqlOptions = {
